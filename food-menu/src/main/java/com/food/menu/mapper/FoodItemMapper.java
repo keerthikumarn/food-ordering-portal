@@ -15,6 +15,6 @@ public interface FoodItemMapper {
 
 	FoodItem mapToFoodItemDTOToFoodItem(FoodItemDTO foodItemDTO);
 
-	FoodItemDTO mapFoodItemToFoodItemDto(FoodItem foodItem);
+	FoodItemDTO mapFoodItemToFoodItemDTO(FoodItem foodItem);
 
 }
