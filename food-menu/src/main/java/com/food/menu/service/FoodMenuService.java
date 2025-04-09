@@ -3,6 +3,7 @@ package com.food.menu.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.food.menu.dto.FoodItemDTO;
@@ -12,6 +13,7 @@ import com.food.menu.entity.FoodItem;
 import com.food.menu.mapper.FoodItemMapper;
 import com.food.menu.repo.FoodItemRepository;
 
+@Service
 public class FoodMenuService {
 
 	@Autowired
