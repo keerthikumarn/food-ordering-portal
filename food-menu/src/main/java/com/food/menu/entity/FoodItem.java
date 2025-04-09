@@ -1,5 +1,7 @@
 package com.food.menu.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,6 +25,7 @@ public class FoodItem {
 
     private String itemDescription;
 
+    @JsonProperty("isVeg")
     private boolean isVeg;
 
     private Long price;
