@@ -7,10 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.user.management.UserRepository;
 import com.user.management.dto.UserDTO;
 import com.user.management.entity.User;
 import com.user.management.mapper.UserMapper;
+import com.user.management.repo.UserRepository;
 import com.user.management.service.UserService;
 
 @Service
