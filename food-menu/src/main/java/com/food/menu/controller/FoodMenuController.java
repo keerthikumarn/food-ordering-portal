@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.food.menu.dto.FoodItemDTO;
@@ -17,6 +18,7 @@ import com.food.menu.service.FoodMenuService;
  * This class is used to handle all the requests related to food menu.
  */
 @RestController
+@RequestMapping("/foodmenu")
 public class FoodMenuController {
 
 	@Autowired

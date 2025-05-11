@@ -19,9 +19,9 @@ public class FoodItem {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private String itemName;
+    private String foodItemName;
 
-    private String itemDescription;
+    private String description;
 
     private boolean isVeg;
 
