@@ -36,7 +36,7 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	private UserDTO fetchUserDetailsFromUserId(Integer userId) {
-		return restTemplate.getForObject("http://USER-SERVICE/user/fetchUserById/" + userId, UserDTO.class);
+		return restTemplate.getForObject("http://USER-MANAGEMENT-SERVICE/user/fetchUserById/" + userId, UserDTO.class);
 	}
 
 }
