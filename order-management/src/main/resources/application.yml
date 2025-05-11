@@ -6,10 +6,10 @@ eureka:
 spring:
   data:
     mongodb:
-      uri:  mongodb://localhost:27017/food-orders-db
+      uri:  mongodb://localhost:27017/food-order-db
       host: localhost
       port: 27017
-      database: food-orders-db
+      database: food-order-db
       repositories:
         enabled: true
   application:
