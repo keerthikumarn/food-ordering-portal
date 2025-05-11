@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Document(collation = "sequence")
+@Document(collection = "sequence")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
