@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.food.menu.dto.FoodItemDTO;
 import com.food.menu.dto.FoodMenuDTO;
 import com.food.menu.service.FoodMenuService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 /**
  * This class is used to handle all the requests related to food menu.
  */
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/foodmenu")
 public class FoodMenuController {
 
