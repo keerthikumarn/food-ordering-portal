@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from '../service/order.service';
 import { OrderDTO } from '../models/OrderDTO';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-order-summary',
   templateUrl: './order-summary.component.html',
-  styleUrls: ['./order-summary.component.scss']
+  styleUrls: ['./order-summary.component.scss'],
+  imports: [CommonModule]
 })
 export class OrderSummaryComponent {
 

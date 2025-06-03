@@ -9,14 +9,14 @@
         </tr>
       </thead>
       <tbody>
-        <!-- <tr *ngFor="let item of obj.foodItemsList"> -->
-          <tr>
-          <!-- <td>{{ item.foodItemName }}</td>
+        <tr *ngFor="let item of obj?.foodItemsList">
+          <!-- <tr> -->
+          <td>{{ item.foodItemName }}</td>
           <td>{{ item.quantity }}</td>
-          <td>&#x20b9; {{ item.price }}</td> -->
-          <td>idli</td>
+          <td>&#x20b9; {{ item.price }}</td>
+          <!-- <td>idli</td>
           <td>5</td>
-          <td>111</td>
+          <td>111</td> -->
         </tr>
       </tbody>
       <tfoot>
