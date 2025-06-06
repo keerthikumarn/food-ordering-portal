@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.user.management.dto.UserDTO;
 import com.user.management.service.UserService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -22,12 +25,21 @@ public class UserController {
 
 	@PostMapping("/addUser")
 	public ResponseEntity<UserDTO> addUser(@RequestBody UserDTO userDTO) {
+		log.info("UserController - addUser() called with username: {}", userDTO.getUsername());
 		UserDTO user = userService.addUser(userDTO);
+		log.info("UserController - User created/added with ID: {}", user.getId());
 		return new ResponseEntity<>(user, HttpStatus.CREATED);
 	}
 
 	@GetMapping("/fetchUserById/{userId}")
 	public ResponseEntity<UserDTO> fetchUserDetailsById(@PathVariable Integer userId) {
-		return userService.fetchUserDetailsById(userId);
+		log.info("UserController - fetchUserDetailsById() called with userId: {}", userId);
+		ResponseEntity<UserDTO> response = userService.fetchUserDetailsById(userId);
+        if (response.getStatusCode().is2xxSuccessful()) {
+            log.info("UserController - User details retrieved for userId: {}", userId);
+        } else if (response.getStatusCode().is4xxClientError()) {
+            log.warn("UserController - User not found for userId: {}", userId);
+        }
+        return response;
 	}
 }
