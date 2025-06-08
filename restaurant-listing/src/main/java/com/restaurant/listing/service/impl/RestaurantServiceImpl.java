@@ -24,7 +24,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 
 	@Override
 	public List<RestaurantDTO> findAllRestaurants() {
-		log.info("RestaurantService - findAllRestaurants() called");
+		log.info("RestaurantServiceImpl - findAllRestaurants() called");
 		List<Restaurant> restaurantsList = restaurantRepo.findAll();
 		if (restaurantsList == null || restaurantsList.isEmpty()) {
 			log.warn("RestaurantServiceImpl - No restaurants found in the database");
@@ -54,10 +54,10 @@ public class RestaurantServiceImpl implements RestaurantService {
 		log.info("RestaurantServiceImpl - fetchRestaurantById() called for ID: {}", id);
 		Optional<Restaurant> restaurant = restaurantRepo.findById(id);
 		if (restaurant.isPresent()) {
-			log.info("RestaurantService - Restaurant found for ID: {}", id);
+			log.info("RestaurantServiceImpl - Restaurant found for ID: {}", id);
 			return RestaurantMapper.INSTANCE.mapRestaurantToRestaurantDTO(restaurant.get());
 		} else {
-			log.warn("RestaurantService - No restaurant found for ID: {}", id);
+			log.warn("RestaurantServiceImpl - No restaurant found for ID: {}", id);
 			return null;
 		}
 	}
