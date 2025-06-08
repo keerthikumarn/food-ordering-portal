@@ -16,9 +16,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.restaurant.listing.dto.RestaurantDTO;
 import com.restaurant.listing.service.RestaurantService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/restaurant")
 @CrossOrigin
+@Slf4j
 public class RestaurantListingController {
 
 	@Autowired
@@ -26,19 +29,30 @@ public class RestaurantListingController {
 
 	@GetMapping("/getAllRestaurants")
 	public ResponseEntity<List<RestaurantDTO>> fetchAllRestaurants() {
+		log.info("RestaurantController - fetchAllRestaurants() invoked");
 		List<RestaurantDTO> restaurantsList = restaurantService.findAllRestaurants();
+		log.info("RestaurantController - fetchAllRestaurants() returned {} restaurants", restaurantsList.size());
 		return new ResponseEntity<>(restaurantsList, HttpStatus.OK);
 	}
 
 	@PostMapping("/addRestaurant")
 	public ResponseEntity<RestaurantDTO> saveRestaurant(@RequestBody RestaurantDTO restaurantDTO) {
-		RestaurantDTO restaurant = restaurantService.saveRestaurant(restaurantDTO);
-		return new ResponseEntity<>(restaurant, HttpStatus.CREATED);
+		log.info("RestaurantController - saveRestaurant() invoked");
+		RestaurantDTO savedRestaurant = restaurantService.saveRestaurant(restaurantDTO);
+		log.info("RestaurantController - saveRestaurant() successfully saved restaurant with ID: {}",
+				savedRestaurant.getId());
+		return new ResponseEntity<>(savedRestaurant, HttpStatus.CREATED);
 	}
 
 	@GetMapping("/fetchById/{id}")
 	public ResponseEntity<RestaurantDTO> findRestaurantById(@PathVariable Integer id) {
+		log.info("RestaurantController - findRestaurantById() called with ID: {}", id);
 		RestaurantDTO restaurantDTO = restaurantService.fetchRestaurantById(id);
+		if (restaurantDTO != null) {
+		    log.info("RestaurantController - Restaurant found with ID: {}", id);
+		} else {
+		    log.warn("RestaurantController - No restaurant found for ID: {}", id);
+		}
 		return new ResponseEntity<>(restaurantDTO, HttpStatus.OK);
 	}
 }
