@@ -19,7 +19,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 	@Autowired
 	private RestaurantRepository restaurantRepo;
 
-	@Override
+	/*@Override
 	public List<RestaurantDTO> findAllRestaurants() {
 		List<Restaurant> restaurantsList = restaurantRepo.findAll();
 		List<RestaurantDTO> restaurantDtoList = null;
@@ -29,6 +29,14 @@ public class RestaurantServiceImpl implements RestaurantService {
 					.collect(Collectors.toList());
 		}
 		return restaurantDtoList;
+	}*/
+	
+	@Override
+	public List<RestaurantDTO> findAllRestaurants() {
+		List<RestaurantDTO> restaurantsList = restaurantRepo.findAll().stream()
+				.map(RestaurantMapper.INSTANCE::mapRestaurantToRestaurantDTO)
+				.collect(Collectors.toList());
+		return restaurantsList;
 	}
 
 	@Override
