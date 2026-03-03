@@ -6,17 +6,18 @@ import org.mapstruct.factory.Mappers;
 import com.food.menu.dto.FoodItemDTO;
 import com.food.menu.entity.FoodItem;
 
-/**
- * This interface is used to map food items to their respective database
- * entities.
- */
-@Mapper
-public interface FoodItemMapper {
+import java.util.List;
 
-	FoodItemMapper INSTANCE = Mappers.getMapper(FoodItemMapper.class);
+/**
+ * Maps between food item DTOs and JPA entities.
+ */
+@Mapper(componentModel = "spring")
+public interface FoodItemMapper {
 
 	FoodItem mapToFoodItemDTOToFoodItem(FoodItemDTO foodItemDTO);
 
 	FoodItemDTO mapFoodItemToFoodItemDTO(FoodItem foodItem);
+
+	List<FoodItemDTO> mapFoodItemsToFoodItemDTOs(List<FoodItem> foodItems);
 
 }
